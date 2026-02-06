@@ -1,0 +1,44 @@
+repos:
+- repo: local
+  hooks:
+    # Backend Python hooks
+    - id: ruff-format
+      name: ruff format
+      description: "Run 'ruff format' for Python formatting"
+      entry: just backend format
+      language: system
+      types_or: [python, pyi, jupyter]
+      pass_filenames: false
+      require_serial: true
+    - id: ruff-check
+      name: ruff check
+      description: "Run 'ruff check' for Python linting"
+      entry: just backend lint
+      language: system
+      types_or: [python, pyi, jupyter]
+      pass_filenames: false
+      require_serial: true
+    - id: ty
+      name: ty check
+      description: "Run 'ty check' for Python type checking"
+      entry: just backend type-check
+      language: system
+      types_or: [python, pyi, jupyter]
+      pass_filenames: false
+      require_serial: true
+    - id: pytest
+      name: pytest
+      description: "Run 'pytest' for Python unit testing"
+      entry: just backend test
+      language: system
+      types_or: [python, pyi, jupyter]
+      pass_filenames: false
+      require_serial: true
+    - id: generate-docs
+      name: generate docs
+      description: "Run 'generate_docs.py' to update API documentation"
+      entry: just backend generate-docs
+      language: system
+      types_or: [python, pyi, jupyter]
+      pass_filenames: false
+      require_serial: true

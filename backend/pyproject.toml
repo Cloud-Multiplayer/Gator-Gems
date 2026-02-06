@@ -1,0 +1,27 @@
+[project]
+name = "backend"
+version = "0.0.0"
+requires-python = ">=3.14"
+
+dependencies = [
+    "fastapi[standard]>=0.128.0",
+    "sqlmodel>=0.0.31",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "ruff",
+    "ty",
+]
+
+
+[tool.pytest.ini_options]
+pythonpath = "."
+
+addopts = [
+    "--cov=app",
+    "--cov-fail-under=80",
+    "--cov-report=term-missing"
+]
